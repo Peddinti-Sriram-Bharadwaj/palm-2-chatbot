@@ -7,7 +7,7 @@ function App() {
 
   console.log('messages',messages)
   const getResponse = async() => {
-    const response = await fetch(`http://localhost:8000/prompt/${text}`);
+    const response = await fetch(`https://marvelous-nasturtium-50961f.netlify.app/prompt/${text}`);
     const data = await response.json()
     console.log(data)
     setMessages([...messages,
