@@ -1,5 +1,9 @@
 import {useState} from 'react';
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
+app.use(cors());
 
 function App() {
   const [text, setText] = useState('');
@@ -7,7 +11,8 @@ function App() {
 
   console.log('messages',messages)
   const getResponse = async() => {
-    const response = await fetch(`https://marvelous-nasturtium-50961f.netlify.app/prompt/${text}`);
+    const response = await fetch(`https://marvelous-nasturtium-50961f.netlify.app/prompt/${text}`, { mode: 'no-cors' });
+
     const data = await response.json()
     console.log(data)
     setMessages([...messages,
